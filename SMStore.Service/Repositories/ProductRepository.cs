@@ -8,10 +8,6 @@ namespace SMStore.Service.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        public ProductRepository(DatabaseContext databaseContext) : base(databaseContext)
-        {
-        }
-
         public async Task<IEnumerable<Product>> UrunleriKategoriveMarkaylaGetirAsync()
         {
             return await _databaseContext.Products.Include("Brand").Include("Category").ToListAsync();

@@ -7,10 +7,6 @@ namespace SMStore.Service.Repositories
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        public CategoryRepository(DatabaseContext databaseContext) : base(databaseContext)
-        {
-        }
-
         public async Task<Category> KategoriyiUrunlerliyleGetir(int categoryId)
         {
             return await _databaseContext.Categories.Include("Products").FirstOrDefaultAsync(c=>c.Id == categoryId);

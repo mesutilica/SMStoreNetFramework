@@ -3,6 +3,7 @@ using SMStore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -13,9 +14,9 @@ namespace SMStore.Service.Repositories
     {
         internal readonly DatabaseContext _databaseContext;
 
-        public Repository(DatabaseContext databaseContext)
+        public Repository()//DatabaseContext databaseContext
         {
-            _databaseContext = databaseContext;
+            _databaseContext = new DatabaseContext(); //databaseContext;
             _dbSet = _databaseContext.Set<T>();
         }
 
@@ -84,7 +85,7 @@ namespace SMStore.Service.Repositories
 
         public void Update(T entity)
         {
-            //_databaseContext.Update(entity);
+            _dbSet.AddOrUpdate(entity); // yeni güncelleme metodu
         }
     }
 }

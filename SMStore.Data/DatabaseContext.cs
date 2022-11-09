@@ -16,3 +16,8 @@ namespace SMStore.Data
         public DbSet<Slider> Sliders { get; set; }
     }
 }
+/*
+ * .Netframework de migration oluşturmak için Package manage console ekranından Smstore.data projesini seçerek enable-migrations komutunu çalıştırıyoruz.
+ * Sonraki geliştirmelerde add-migration migrationismi komutunu yazıp enter diyerek yeni eklemeleri migration olarak kaydedebiliriz.
+ * Migration işleminden sonra update-database komutunu girip enter diyerek işlemi tamamlıyoruz.
+ */

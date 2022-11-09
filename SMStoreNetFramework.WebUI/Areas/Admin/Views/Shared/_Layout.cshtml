@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SM Store Admin</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/dashboard.css" rel="stylesheet" />
+</head>
+<body>
+    @Html.Partial("_PartialHeader")
+
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_PartialSidebarMenu")
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
