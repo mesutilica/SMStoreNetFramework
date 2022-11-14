@@ -1,15 +1,15 @@
-﻿@model IEnumerable<SMStore.Entities.AppUser>
+﻿@model IEnumerable<SMStore.Entities.Contact>
 
 @{
-    ViewBag.Title = "Kullanıcılar";
+    ViewBag.Title = "İletişim Formları";
 }
 
-<h2>Kullanıcılar</h2>
+<h2>İletişim Formları</h2>
 
 <p>
     @Html.ActionLink("Yeni Ekle", "Create", null, new { @class = "btn btn-outline-primary" })
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -24,16 +24,7 @@
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAdmin)
+            @Html.DisplayNameFor(model => model.Message)
         </th>
         <th></th>
     </tr>
@@ -54,16 +45,7 @@
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAdmin)
+                @Html.DisplayFor(modelItem => item.Message)
             </td>
             <td>
                 @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |

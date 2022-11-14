@@ -5,84 +5,88 @@ using System.Web.Mvc;
 
 namespace SMStoreNetFramework.WebUI.Areas.Admin.Controllers
 {
-    public class AppUsersController : Controller
+    public class ContactsController : Controller
     {
-        Repository<AppUser> repository = new Repository<AppUser>();
-        // GET: Admin/AppUsers
+        Repository<Contact> repository = new Repository<Contact>();
+        // GET: Admin/Contacts
         public ActionResult Index()
         {
             var model = repository.GetAll();
             return View(model);
         }
 
-        // GET: Admin/AppUsers/Details/5
+        // GET: Admin/Contacts/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Admin/AppUsers/Create
+        // GET: Admin/Contacts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AppUsers/Create
+        // POST: Admin/Contacts/Create
         [HttpPost]
-        public ActionResult Create(AppUser appUser)
+        public ActionResult Create(Contact contact)
         {
             try
             {
-                repository.Add(appUser);
+                repository.Add(contact);
                 repository.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch
             {
                 ModelState.AddModelError("", "Hata Oluştu!");
             }
-            return View(appUser);
+            return View(contact);
         }
 
-        // GET: Admin/AppUsers/Edit/5
+        // GET: Admin/Contacts/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
             var model = await repository.FindAsync(id);
             return View(model);
         }
 
-        // POST: Admin/AppUsers/Edit/5
+        // POST: Admin/Contacts/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, AppUser appUser)
+        public ActionResult Edit(int id, Contact contact)
         {
             try
             {
-                repository.Update(appUser);
+                repository.Update(contact);
                 repository.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Hata Oluştu!");
             }
+            return View(contact);
         }
 
-        // GET: Admin/AppUsers/Delete/5
+        // GET: Admin/Contacts/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
             var model = await repository.FindAsync(id);
             return View(model);
         }
 
-        // POST: Admin/AppUsers/Delete/5
+        // POST: Admin/Contacts/Delete/5
         [HttpPost]
-        public async Task<ActionResult> Delete(int id, AppUser appUser)
+        public async Task<ActionResult> Delete(int id, FormCollection collection)
         {
             try
             {
-                var model = await repository.FindAsync(id); // Ef Core da appUser entity si ile silme olurken burada gelen id ye göre kaydı bulup silinmek üzere Delete metoduna göndermemiz gerekiyor.
+                var model = await repository.FindAsync(id);
                 repository.Delete(model);
-                repository.SaveChanges();
+                await repository.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
             catch
