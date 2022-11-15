@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace SMStoreNetFramework.WebUI.Areas.Admin.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         Repository<Post> repository = new Repository<Post>();

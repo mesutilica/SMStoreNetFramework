@@ -130,14 +130,17 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SlidersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +161,11 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\dashboard.css" />
+    <Content Include="Content\signin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\lock-300x300.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -205,6 +210,11 @@
     <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sliders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
@@ -234,8 +244,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

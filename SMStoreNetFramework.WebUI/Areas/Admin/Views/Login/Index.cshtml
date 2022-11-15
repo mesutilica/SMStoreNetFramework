@@ -1,0 +1,44 @@
+﻿@model SMStoreNetFramework.WebUI.Models.AdminLoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/signin.css" rel="stylesheet" />
+</head>
+<body class="text-center">
+    
+    <main class="form-signin w-100 m-auto">
+        @Html.Raw(TempData["Mesaj"])
+        <form action="/Admin/Login" method="post">
+            <img class="mb-4" src="~/Images/lock-300x300.png" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
+
+            <div class="form-floating">
+                <input type="email" name="email" class="form-control" id="floatingInput" required placeholder="name@ornekmail.com">
+                <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control" id="floatingPassword" required placeholder="Şifre">
+                <label for="floatingPassword">Şifre</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me" name="rememberme"> Beni Hatırla
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş</button>
+            <p class="mt-5 mb-3 text-muted">© 2018–2022 SM Academy</p>
+        </form>
+    </main>
+
+</body>
+</html>

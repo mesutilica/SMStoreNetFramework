@@ -1,0 +1,59 @@
+﻿@model SMStore.Entities.Slider
+
+@{
+    ViewBag.Title = "Sil";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istiyor musunuz?</h3>
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @if (Model.Image != null)
+            {
+                <img src="~/Images/@Model.Image" alt="Resim Yüklenmemiş" height="80" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listey Dön", "Index")
+        </div>
+    }
+</div>
