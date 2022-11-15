@@ -1,9 +1,5 @@
 ﻿using SMStore.Entities;
 using SMStore.Service.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -28,7 +24,7 @@ namespace SMStoreNetFramework.WebUI.Areas.Admin.Controllers
                     Session["admin"] = kullanici; // bu şekilde kullanıcıyı bir session a atıp diğer sayfalarda erişebiliriz, giriş için bu zorunlu değil
                     FormsAuthentication.SetAuthCookie(kullanici.Username, true); // oturum aç
                     
-                    return Redirect("/Admin/");
+                    return ReturnUrl == null ? Redirect("/Admin/") : Redirect(ReturnUrl);
                 }
                 else TempData["Mesaj"] = "<div class='alert alert-danger'>Giriş Başarısız!</div>";
             }
