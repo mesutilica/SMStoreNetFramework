@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SMStore.Entities.Category>
 
 <header class="p-3">
-    <div class="container">
+    <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-black text-decoration-none">
                 SM Store
@@ -13,11 +13,11 @@
                 {
                     <li><a href="/Categories/Index/@item.Id" class="nav-link px-2 text-black">@item.Name</a></li>
                 }
-                <li><a href="#" class="nav-link px-2 text-black">İletişim</a></li>
+                <li><a href="/Home/ContactUs" class="nav-link px-2 text-black">İletişim</a></li>
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control " placeholder="Ara..." aria-label="Search">
+            <form action="/Products/Search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" name="search" class="form-control " placeholder="Ara..." aria-label="Search">
             </form>
 
             <div class="text-end">

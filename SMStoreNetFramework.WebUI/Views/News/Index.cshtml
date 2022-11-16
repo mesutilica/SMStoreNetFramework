@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SMStore.Entities.News>
+
+@{
+    ViewBag.Title = "Bizden Haberler";
+}
+
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Bizden Haberler</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Son haberler</p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_PartialNews", item)
+        }
+    </div>
+</div>

@@ -10,3 +10,24 @@
 
 @Html.Partial("_PartialSlider", Model.Sliders)
 
+<div class="container px-4 px-lg-5 mt-5">
+    <h1 class="text-center display-3">Ürünlerimiz</h1>
+    <hr />
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        @foreach (var item in Model.Products)
+        {
+            @Html.Partial("_PartialProduct", item)
+        }
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center display-4">Bizden Haberler</h2>
+    <hr />
+    <div class="row">
+        @foreach (var item in Model.News)
+        {
+            @Html.Partial("_PartialNews", item)
+        }
+    </div>
+</div>

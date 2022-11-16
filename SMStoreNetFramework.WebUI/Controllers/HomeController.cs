@@ -1,6 +1,7 @@
 ﻿using SMStore.Entities;
 using SMStore.Service.Repositories;
 using SMStoreNetFramework.WebUI.Models;
+using SMStoreNetFramework.WebUI.Utils;
 using System.Web.Mvc;
 
 namespace SMStoreNetFramework.WebUI.Controllers
@@ -11,6 +12,7 @@ namespace SMStoreNetFramework.WebUI.Controllers
         Repository<Product> repositoryProduct = new Repository<Product>();
         Repository<News> repositoryNews = new Repository<News>();
         Repository<Slider> repositorySlider = new Repository<Slider>();
+        Repository<Contact> repositoryContact = new Repository<Contact>();
         public ActionResult Index()
         {
             var model = new HomePageViewModel()
@@ -34,11 +36,34 @@ namespace SMStoreNetFramework.WebUI.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ContactUs()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
+        }
+        [HttpPost]
+        public ActionResult ContactUs(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    repositoryContact.Add(contact);
+                    repositoryContact.SaveChanges();
+                    TempData["Mesaj"] = @"<div class='alert alert-success'>Mesajınız Gönderildi! Teşekkürler..</div>";
+                    bool sonuc = MailHelper.SendMail(contact);
+                    if (sonuc)
+                    {
+                        // mail gönderme işlemi başarılıysa yapılacak işlemler
+                    }
+                    return RedirectToAction("ContactUs");
+                }
+                catch (System.Exception hata)
+                {
+                    // Todo:veritabanına hata loglanabilir
+                    TempData["Mesaj"] = @"<div class='alert alert-danger'>Mesaj Gönderilemedi! Hata Oluştu!</div>";
+                }
+            }
+            return View(contact);
         }
     }
 }

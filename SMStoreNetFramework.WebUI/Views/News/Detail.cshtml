@@ -1,0 +1,20 @@
+﻿@model SMStore.Entities.News
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center display-2">@Model.Name</h1>
+        <div class="col">
+            <img src="~/Images/@Model.Image" alt="@Model.Name" title="@Model.Name" class="img-fluid" />
+        </div>
+        <div class="col">
+            @Model.Description
+        </div>
+        <p>
+            Haber Tarihi : @Model.CreateDate
+        </p>
+    </div>
+</div>

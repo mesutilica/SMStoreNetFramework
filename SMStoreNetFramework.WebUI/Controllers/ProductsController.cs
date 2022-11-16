@@ -19,5 +19,11 @@ namespace SMStoreNetFramework.WebUI.Controllers
             if (model == null) return HttpNotFound();
             return View(model);
         }
+        public ActionResult Search(string search)
+        {
+            var model = repository.GetAll(p=>p.Name.Contains(search));
+
+            return View(model);
+        }
     }
 }
